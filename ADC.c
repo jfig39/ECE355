@@ -43,8 +43,8 @@
 #define myTIM2_PRESCALER ((uint16_t)0x0000)
 /* Maximum possible setting for overflow */
 #define myTIM2_PERIOD ((uint32_t)0xFFFFFFFF)
-#define VDD 3.278
-#define ADC_bits (4095-175)
+#define VDD 2.968 //Need to adjust for what stm system power is
+#define ADC_bits (4095)
 #define VoltsPerBit VDD/ADC_bits
 
 

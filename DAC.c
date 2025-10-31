@@ -104,26 +104,26 @@ main(int argc, char* argv[])
 	 // Enable DAC
 	 DAC->CR |= DAC_CR_EN1;
 	 timer_start();
-	  trace_printf("Hello DAC");
+	  trace_printf("Hello DAC\n");
 
   // Infinite loop
   while (1)
     {
 
-	        timer_sleep(10000);
-
-	  	  DAC->DHR12R1 = 0xFFF;
-
-	  	timer_sleep(10000);
-	  	DAC->DHR12R1 = 0x0FF;
-	  	timer_sleep(10000);
+	  	trace_printf("Max Voltage\n");
+	  	DAC->DHR12R1 = 0xFFF;
+	  	timer_sleep(2000);
+	  	trace_printf("Mid Voltage\n");
+	  	DAC->DHR12R1 = 0x800;
+	  	timer_sleep(2000);
+	  	trace_printf("Min Voltage\n");
 	 	DAC->DHR12R1 = 0x000;
-	 	timer_sleep(10000);
+	 	timer_sleep(2000);
 
 	        ++seconds;
 
 	        // Count seconds on the trace device.
-	        trace_printf("Second %u\n", seconds);
+	    trace_printf("Second %u\n", seconds);
 
     }
   // Infinite loop, never return.
